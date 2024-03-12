@@ -1,71 +1,19 @@
-// script.js 
+Certainly! A toast notification is a brief, transient message that pops up on the screen to provide users with timely information or updates. These notifications typically appear in the form of a small rectangular pop-up at the bottom or top of the screen.
 
-let icon = { 
-	success: 
-	'<span class="material-symbols-outlined">task_alt</span>', 
-	danger: 
-	'<span class="material-symbols-outlined">error</span>', 
-	warning: 
-	'<span class="material-symbols-outlined">warning</span>', 
-	info: 
-	'<span class="material-symbols-outlined">info</span>', 
-}; 
+Here are some key points about toast notifications:
 
-const showToast = ( 
-	message = "Sample Message", 
-	toastType = "info", 
-	duration = 5000) => { 
-	if ( 
-		!Object.keys(icon).includes(toastType)) 
-		toastType = "info"; 
+Visibility: Toast notifications are designed to be non-intrusive yet noticeable, ensuring that they catch the user's attention without disrupting their current task.
 
-	let box = document.createElement("div"); 
-	box.classList.add( 
-		"toast", `toast-${toastType}`); 
-	box.innerHTML = ` <div class="toast-content-wrapper"> 
-					<div class="toast-icon"> 
-					${icon[toastType]} 
-					</div> 
-					<div class="toast-message">${message}</div> 
-					<div class="toast-progress"></div> 
-					</div>`; 
-	duration = duration || 5000; 
-	box.querySelector(".toast-progress").style.animationDuration = 
-			`${duration / 1000}s`; 
+Timely Information: They are used to convey time-sensitive messages, such as new email alerts, social media notifications, or system updates.
 
-	let toastAlready = 
-		document.body.querySelector(".toast"); 
-	if (toastAlready) { 
-		toastAlready.remove(); 
-	} 
+Customization: Developers often have the ability to customize the appearance, duration, and behavior of toast notifications based on the application's specific requirements.
 
-	document.body.appendChild(box)}; 
+Interaction: In some cases, users may be able to interact with the notification, such as dismissing it or taking action directly from the notification, like replying to a message.
 
-let submit = 
-	document.querySelector(".custom-toast.success-toast"); 
-let information = 
-	document.querySelector(".custom-toast.info-toast"); 
-let failed = 
-	document.querySelector(".custom-toast.danger-toast"); 
-let warn = 
-	document.querySelector(".custom-toast.warning-toast"); 
+Temporary Display: Toast notifications typically disappear after a few seconds, although the duration can be adjusted based on the developer's preferences.
 
-submit.addEventListener("click",(e) => { 
-		e.preventDefault(); 
-		showToast("Article Submitted Successfully","success",5000); 
-	}); 
+Platform Support: Toast notifications are commonly found in mobile operating systems such as Android and iOS, as well as in desktop operating systems like Windows and macOS.
 
-information.addEventListener("click",(e) => { 
-		e.preventDefault(); 
-		showToast("Do POTD and Earn Coins","info",5000); 
-	}); 
+User Control: Users often have the option to manage notifications at a system level, including the ability to customize notification settings for individual apps.
 
-failed.addEventListener("click",(e) => { 
-		e.preventDefault(); 
-		showToast("Failed unexpected error","danger",5000); 
-	}); 
-
-warn.addEventListener("click", (e) => { 
-	e.preventDefault(); 
-	showToast("!warning! server error","warning",5000); 
-});
+Overall, toast notifications serve as a convenient way to keep users informed without requiring them to switch focus away from their current tasks or activities.
